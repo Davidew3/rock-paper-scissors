@@ -12,21 +12,23 @@
   --white: #ffffff;
   --yellow: #f1be32;
   --golden-yellow: #feac32;
-  height: 100%;
-  background-size: cover;
-  background-position: center bottom;
-  background: rgb(29,44,67);
-  background: linear-gradient(220deg, rgba(29,44,67,1) 0%, rgba(34,139,230,1) 50%, rgba(231,245,255,1) 100%);
-  background-repeat: no-repeat;
+  --primary-color: rgba(34,139,230,1) 50%;
+  --secondary-color: #6c757d;
+  --success-color: rgb(206, 195, 252);
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: rgb(30, 67, 106);
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+
   font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  height: 100%;
+  height: 100vh;
   background-size: cover;
   background-position: center bottom;
-  background: rgb(29,44,67);
-  background: linear-gradient(220deg, rgba(29,44,67,1) 0%, rgba(34,139,230,1) 50%, rgba(231,245,255,1) 100%);
+  background: var(--info-color);
   text-align: center;
   color: var(--white);
 }
@@ -70,6 +72,11 @@ h1 {
 .rules-container p {
   margin: 10px 0;
 }
+@media screen and (min-width: 450px) {
+  .rules-container {
+    width: 55%;
+  }
+}
 
 @media (min-width: 760px) {
   .rules-container {
@@ -80,7 +87,7 @@ h1 {
 .score-container {
   display: flex;
   justify-content: space-around;
-  margin: 30px 0;
+  margin: 3rem 0;
   font-size: 1.2rem;
 }
 
@@ -91,7 +98,7 @@ h1 {
 .results-container {
   font-size: 1.8rem;
   font-weight: bold;
-  margin: 15px 0;
+  margin: 1.5rem 0;
 }
 
 #winner-msg {
@@ -108,18 +115,67 @@ h1 {
   justify-content: space-evenly;
   align-items:start;
   color:black;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   z-index: 2;  
 }
 .symbol {
-  font-size: 150px; 
+  font-size: 4rem; 
   color: #4CAF50;
-  margin: 15px; 
+  margin: 1rem; 
   cursor: pointer;
+}
+@media screen and (min-width: 350px) {
+  .score-container {
+    font-size: 1rem;
+    margin: 1.5rem;
+  }
+  h2 {
+    font-size: 1rem;
+    padding: .8rem;
+  }
+}
+@media screen and (min-width: 576px) {
+
+  .score-container {
+    font-size: 1.2rem;
+    margin: 1rem;
+  }
+  h2 {
+    font-size: 1rem;
+    padding: .3rem;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  h2 {
+    font-size: 1.2rem;
+    padding: .3rem;
+  }
+  .symbol {
+    font-size: 6rem;
+  }
+ 
+}
+@media screen and (min-width: 1028px) {
+  .symbol {
+    font-size: 8rem;
+  }
+  .score-container {
+    font-size: 1.5rem;    
+    margin: 1rem 3rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    padding: .5rem;
+  }
+  .results-container {
+    margin: auto;
+  }
 }
 .symbol:hover {
   border: 2px solid #ffcc4c;
   margin: 13px;
+  cursor: pointer;
 }
 .selected {
   color: #554947; 
@@ -154,14 +210,14 @@ label:hover {
 #overlay-start-content {
   background: rgba(34,139,230,1) 50%;
   outline:2px solid white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 2rem;
+  border-radius: 1rem;
   text-align: center;
 }
 
 #overlay-start-msg {
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 #overlay {
   position: fixed;
@@ -178,14 +234,14 @@ label:hover {
 #overlay-content {
   background: rgba(34,139,230,1) 50%;
   outline:2px solid white;
-  padding: 20px;
+  padding: 2rem;
   border-radius: 10px;
   text-align: center;
 }
 
 #overlay-winner-msg {
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 footer {
   width: 100%;
@@ -194,5 +250,17 @@ footer {
   text-align:center;
   color:white;
   -webkit-text-stroke: #0a0a23;
-  margin-top: 15px;
+  margin-top: 1.5rem;
+}
+@media screen and (min-width: 450px) {
+  #overlay,
+  .overlay-start,
+  #overlay-start-content {
+    padding: .5rem;
+  }
+  
+  #overlay-start-content,
+  #overlay-content {
+    margin: .5rem;
+  }
 }
